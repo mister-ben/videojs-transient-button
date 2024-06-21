@@ -1,0 +1,4 @@
+{
+  "presets": ["@babel/preset-env"],
+  "targets": "defaults, last 3 major versions, Chrome >= 53, not dead, not op_mini all"
+}

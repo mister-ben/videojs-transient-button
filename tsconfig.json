@@ -1,0 +1,14 @@
+{
+  "include": ["src/*.js"],
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outFile": "dist/transientButton.d.ts",
+    "declarationMap": true,
+    "skipLibCheck": false,
+    "checkJs": false,
+    "preserveWatchOutput": true
+  }
+}

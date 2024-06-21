@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video.js transient button example</title>
+    <link rel="stylesheet" href="node_modules/video.js/dist/video-js.css" />
+    <link rel="stylesheet" href="dist/TransientButton.css" />
+  </head>
+  <body>
+    <video-js controls muted id="my_player"></video-js>
+    <script src="node_modules/video.js/dist/video.js"></script>
+    <script src="dist/TransientButton.js"></script>
+    <script>
+      const player = videojs("my_player");
+
+      player.ready(function () { 
+        const unmuteButton = player.addChild("TransientButton", {
+          controlText: 'Unmute',
+          className: 'unmute-button',
+          clickHandler: function () {
+            this.player().muted(false);
+            this.dispose();
+          },
+        });
+        
+        player.one('playing', () => {
+          if(player.muted()) {
+            unmuteButton.show();
+          }
+        });
+        player.src("https://vjs.zencdn.net/v/oceans.mp4");
+        console.log(unmuteButton.el());
+      });
+    </script>
+  </body>
+</html>
